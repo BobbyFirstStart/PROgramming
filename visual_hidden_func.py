@@ -11,19 +11,19 @@ X = loaded_data['x_train']
 Y = loaded_data['y_train']
 
 
-degree = 20
+degree = 3
 
-# Выполняем МНК для полиномиальной регрессии
+# МНК для полиномиальной регрессии
 coefficients = np.polyfit(X, Y, degree)
 
 # Создаем полиномиальную модель на основе коэффициентов
 polynomial_model = np.poly1d(coefficients)
 
-# Генерируем значения для графика
+# значения для графика
 x_values = np.linspace(min(X), max(X), 100)
 y_values = polynomial_model(x_values)
 
-# Выводим результаты
+# Вывод
 plt.scatter(X, Y, label='Данные')
 plt.plot(x_values, y_values, label='Полиномиальная регрессия', color='red')
 plt.legend()
